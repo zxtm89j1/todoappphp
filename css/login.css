@@ -1,0 +1,43 @@
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    background-color: pink;
+}
+label {
+    display: block;
+}
+
+form {
+    background-color: lightblue;
+    padding: 10px;
+}
+
+input {
+    border-radius: 5px;
+    width: 100%
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #555;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #999;
+}
