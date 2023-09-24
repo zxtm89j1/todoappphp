@@ -24,7 +24,7 @@ $("document").ready(function () {
       success: function (response) {
         if (response.success) {
           Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: response.success,
             showConfirmButton: false,
