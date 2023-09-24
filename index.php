@@ -10,25 +10,29 @@
 </head>
 
 <body>
-  <form action="">
+  <form class="login_form">
     <h1>YourTodo</h1>
     <h2>Log In here</h2>
     <div>
       <label for="username">Username: </label>
-      <input type="text" name="username" placeholder="Enter your username here..." />
+      <input class="username_login" type="text" name="username" placeholder="Enter your username here..." />
     </div>
 
     <div>
       <label for="password">Password: </label>
-      <input type="password" name="password" placeholder="Enter your password here..." />
+      <input class="password_login" type="password" name="password" placeholder="Enter your password here..." />
     </div>
     <div>
       Don't have an account? Create one <a href="./register.php?action=register">here.</a>
     </div>
+
+    <button type="submit">Submit</button>
   </form>
 
   <script src=" https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
 
