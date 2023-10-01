@@ -27,7 +27,7 @@ $("document").ready(function () {
             position: "center",
             icon: "success",
             title: response.success,
-            showConfirmButton: false,
+            showConfirmButton: true,
             timer: 1800,
           }).then(function () {
             // Redirect to home.php after the SweetAlert2 popup
