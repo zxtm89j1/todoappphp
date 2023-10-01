@@ -10,7 +10,6 @@
 </head>
 
 <body>
-  <div class="response-modal"></div>
   <form class="register_form">
     <h1>YourTodo</h1>
     <h2>Register here</h2>

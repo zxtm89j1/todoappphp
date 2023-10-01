@@ -83,4 +83,14 @@ $("document").ready(function () {
       },
     });
   });
+
+  $("#submit").click(function (e) {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "This is just a sample",
+      showConfirmButton: false,
+      timer: 1800,
+    });
+  });
 });
