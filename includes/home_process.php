@@ -6,7 +6,7 @@ require_once './db.php';
 try {
     $loggedInUser = $_SESSION["username"];
 
-    $query = "SELECT * FROM tasks WHERE user_username = '$loggedInUser' AND _status = 'false'";
+    $query = "SELECT * FROM tasks WHERE user_username = '$loggedInUser';";
     $result = mysqli_query($conn, $query);
 
     $array = mysqli_fetch_all($result, MYSQLI_ASSOC);

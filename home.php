@@ -41,6 +41,9 @@
 
     <ul class="class_list"></ul>
     <h2>Done Tasks</h2>
+    <ul class="done_tasks_list">
+        
+    </ul>
 
 
 

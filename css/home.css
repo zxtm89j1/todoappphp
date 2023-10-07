@@ -1,0 +1,33 @@
+/* .list_item {
+    background-color: green;
+} */
+
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+.priority_1 {
+    background-color: #FFAFAF;
+}
+
+.priority_2 {
+    background-color: #FFFACD;
+}
+
+.priority_3 {
+    background-color: #20B2AA;
+}
+
+.done_task {
+    text-decoration: line-through;
+    background-color: #AEDFF7;
+}
+
+.done_tasks_list > li, .class_list > li {
+    margin-top: 1rem;
+    
+}
