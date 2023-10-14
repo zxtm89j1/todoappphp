@@ -11,7 +11,7 @@ $("document").ready(function (e) {
     if (data.success === "No tasks found!") {
       $(".no_task").text("No tasks found!");
     } else {
-      console.log(data);
+      // console.log(data);
       data.forEach((task) => {
         if (task._status === "false") {
           $(".class_list").append(`<li class="${
@@ -210,6 +210,7 @@ $("document").ready(function (e) {
     $(".edit_todo_form").toggle();
 
     let task_id = $(this).parent().data("task_id");
+    $(".edit_todo_form").attr("data-task_id", task_id);
 
     $.ajax({
       type: "GET",
@@ -218,10 +219,75 @@ $("document").ready(function (e) {
         task_id: Number(task_id),
       },
       success: function (response) {
-        $(".edit_task_title_input").val(response.task_name);
+        console.log(response);
+        // $(".edit_task_title_input").val(response.task_name);
         // $(".edit_todo_form")
         //   .find(".edit_task_title_input")
         //   .val(response.task_name);
+        $(".edit_task_title_input").val(response.success.task_name);
+        $(".edit_task_description_input").val(
+          response.success.task_description
+        );
+
+        $(".edit_task_dueDate").val(response.success.due_date);
+        $(".edit_priority_input").val(response.success.priority);
+        $(".edit_category_input").val(response.success.category);
+
+        // console.log("Hello");
+
+        // console.log($(".edit_task_dueDate").val());
+        // console.log("Hello2");
+
+        // $(".edit_due_date").val(response.success.due_date);
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        console.log(ajaxOptions);
+        console.log(thrownError);
+      },
+    });
+  });
+
+  // code for submitting edited/modified data
+  $(".edit_todo_form").submit(function (e) {
+    e.preventDefault();
+
+    let task_id = $(this).data("task_id");
+    let newTitle = $(".edit_task_title_input").val();
+    let newDescription = $(".edit_task_description_input").val();
+    let newDueDate = $(".edit_task_dueDate").val();
+    let newPriority = $(".edit_priority_input").val();
+    let newCategory = $(".edit_category_input").val();
+
+    console.log(newDueDate);
+    $.ajax({
+      type: "POST",
+      url: "./includes/edit_task.php",
+      data: {
+        task_id: Number(task_id),
+        newTitle: newTitle,
+        newDescription: newDescription,
+        newDueDate: newDueDate,
+        newPriority: newPriority,
+        newCategory: newCategory,
+      },
+      success: function (response) {
+        if (response.success) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: response.success,
+            showConfirmButton: true,
+            timer: 1800,
+          }).then(function () {
+            location.reload();
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: response.error,
+          });
+        }
       },
       error: function (xhr, ajaxOptions, thrownError) {
         console.log(ajaxOptions);
