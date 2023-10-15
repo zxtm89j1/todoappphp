@@ -14,7 +14,60 @@
     /* Set a high z-index to ensure it's on top of other content */
     display: none;
     /* Initially hide the form */
+    /* background-color: lightpink; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */    
+}
+
+.item_container label, .item_container input,
+.item_container select {
+    width: 200px;
+    flex-grow: 1;
+    font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+    padding: 0.5rem;
     
+}
+
+.edit_task_button_container {
+    display: flex;
+    justify-content: center;
+}
+
+.edit_task_button_container .edit_task_button {
+    background-color: #8e44ad;
+        /* A shade of green, matching your existing design */
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        padding: 15px 20px;
+        cursor: pointer;
+        width: 600px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+}
+
+
+
+.edit_form_header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.edit_form_header h2 {
+    font-family: 'Raleway', sans-serif;
+        font-size: 2rem;
+}
+
+.edit_todo_form_content {
+    width: 50%;
+    background: linear-gradient(45deg, #3498db, #27ae60);
+    padding: 1rem;
+
 }
 
 * {
@@ -45,3 +98,94 @@ ul {
     margin-top: 1rem;
     
 }
+
+.log_out_button {
+    background-color: #FF5733;
+    /* A shade of red or orange */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    
+}
+
+div.logout_container {
+    display: flex;
+    justify-content: end;
+}
+
+.add_todo_form > h2 {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+
+}
+
+.item_container {
+    display: flex;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* .item_container * {
+    flex-grow: 1;
+} */
+
+.add_todo_form {
+    background: linear-gradient(45deg, #3498db, #27ae60);
+    width: 50%;
+    display: block;
+    padding: 1.5rem;
+    border-radius: 20px;
+}
+
+.add_todo_form_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_todo_form label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    width: 200px;
+}
+
+.add_todo_form input, .add_todo_form select {
+    font-family: 'Open Sans', sans-serif;
+        font-size: 1.2rem;
+        padding: 0.3rem;
+        width: 700px;
+}
+
+.add_task_button {
+    background-color: #8e44ad;
+        /* A shade of green, matching your existing design */
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        padding: 15px 20px;
+        cursor: pointer;
+        width: 600px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+       
+}
+
+.add_task_button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+

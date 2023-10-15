@@ -202,12 +202,19 @@ $("document").ready(function (e) {
   });
 
   $(".close_edit_todo_form").click(function () {
-    $(".edit_todo_form").toggle();
+    $(".edit_todo_form").css("display", "none");
   });
 
   //code for editing a task
   $(".class_list").on("click", ".edit_icon", function () {
-    $(".edit_todo_form").toggle();
+    if ($(".edit_todo_form").is(":hidden")) {
+      $(".edit_todo_form")
+        .css("display", "flex")
+        .css("justify-content", "center")
+        .css("align-items", "center");
+      // $(".edit_todo_form").css("justify-content", "center");
+      // $(".edit_todo_form").css("align-items", "center");
+    }
 
     let task_id = $(this).parent().data("task_id");
     $(".edit_todo_form").attr("data-task_id", task_id);
@@ -220,10 +227,7 @@ $("document").ready(function (e) {
       },
       success: function (response) {
         console.log(response);
-        // $(".edit_task_title_input").val(response.task_name);
-        // $(".edit_todo_form")
-        //   .find(".edit_task_title_input")
-        //   .val(response.task_name);
+
         $(".edit_task_title_input").val(response.success.task_name);
         $(".edit_task_description_input").val(
           response.success.task_description
@@ -232,13 +236,45 @@ $("document").ready(function (e) {
         $(".edit_task_dueDate").val(response.success.due_date);
         $(".edit_priority_input").val(response.success.priority);
         $(".edit_category_input").val(response.success.category);
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        console.log(ajaxOptions);
+        console.log(thrownError);
+      },
+    });
+  });
 
-        // console.log("Hello");
+  //code for editing a task
+  $(".done_tasks_list").on("click", ".edit_icon", function () {
+    if ($(".edit_todo_form").is(":hidden")) {
+      $(".edit_todo_form")
+        .css("display", "flex")
+        .css("justify-content", "center")
+        .css("align-items", "center");
+      // $(".edit_todo_form").css("justify-content", "center");
+      // $(".edit_todo_form").css("align-items", "center");
+    }
 
-        // console.log($(".edit_task_dueDate").val());
-        // console.log("Hello2");
+    let task_id = $(this).parent().data("task_id");
+    $(".edit_todo_form").attr("data-task_id", task_id);
 
-        // $(".edit_due_date").val(response.success.due_date);
+    $.ajax({
+      type: "GET",
+      url: "./includes/edit_task.php",
+      data: {
+        task_id: Number(task_id),
+      },
+      success: function (response) {
+        console.log(response);
+
+        $(".edit_task_title_input").val(response.success.task_name);
+        $(".edit_task_description_input").val(
+          response.success.task_description
+        );
+
+        $(".edit_task_dueDate").val(response.success.due_date);
+        $(".edit_priority_input").val(response.success.priority);
+        $(".edit_category_input").val(response.success.category);
       },
       error: function (xhr, ajaxOptions, thrownError) {
         console.log(ajaxOptions);
@@ -296,6 +332,41 @@ $("document").ready(function (e) {
     });
   });
 
+  //code for log out
+  $(".log_out_button").on("click", function () {
+    // e.preventDefault();
+
+    // alert("Logged out!");
+
+    $.ajax({
+      type: "POST",
+      url: "./includes/log_out.php",
+      success: function (response) {
+        if (response.success) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: response.success,
+            showConfirmButton: true,
+            timer: 1800,
+          }).then(function () {
+            location.reload();
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: response.error,
+          });
+        }
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        console.log(ajaxOptions);
+        console.log(thrownError);
+      },
+    });
+  });
+
   //code for submitting/adding a task
   $("#add_todo_form").submit(function (e) {
     e.preventDefault();
@@ -317,6 +388,7 @@ $("document").ready(function (e) {
         category: category,
       },
       success: function (response) {
+        // console.log("Hello");
         // console.log(response);
         if (response.success) {
           Swal.fire({

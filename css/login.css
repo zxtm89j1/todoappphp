@@ -10,20 +10,103 @@ html {
 }
 
 body {
-    display: flex;
+display: flex;
     align-items: center;
+    /* Vertically center content */
     justify-content: center;
+    /* Horizontally center content */
+    background-color: #F7F7F7;
+    height: 100%;
+    /* Set body height to 100% for vertical centering */
+    margin: 0;
+    /* Remove default margin */
 }
-h1 {
-    background-color: pink;
-}
+
 label {
     display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 form {
-    background-color: lightblue;
+    background: linear-gradient(45deg, #3498db, #27ae60);
     padding: 10px;
+    border-radius: 15px;
+    width: 40%;
+    
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+form div, form button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+form button {
+background-color: #27ae60;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form_description {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.register_link {
+color: #888;
+color: #555;
+    /* Medium gray color */
+    text-decoration: none;
+    /* Remove the underline by default */
+    transition: color 0.3s;
+    /* Add a smooth color transition effect */
+}
+
+.register_link:hover {
+color: #333;
+    /* Slightly darker gray on hover */
+}
+
+.loginButton {
+    background-color: #27ae60;
+    border-radius: 5px;
+    border: none;
+}
+
+form {
+    padding: 2rem
+}
+
+form h2 {
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.login_form > h1, .register_form > h1 {
+    display: flex;
+margin: auto;
+font-family: 'Raleway', sans-serif;
+font-size: 3rem;
+margin-bottom: 2rem;
 }
 
 input {
