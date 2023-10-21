@@ -7,6 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' || isset($_GET['action'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
+
+            if (empty($_POST["firstname"]) || empty($_POST["lastname"]) || empty($_POST["email"]) || empty($_POST["username"]) || empty($_POST["password"])) {
+                throw new Exception("Please don't leave the field/s blank!");
+            }
             // Validate and sanitize user input
             $username = trim(mysqli_real_escape_string($conn, $_POST["username"]));
             $password = trim(mysqli_real_escape_string($conn, $_POST["password"]));

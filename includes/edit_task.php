@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $newCategory = $_POST["newCategory"];
         $user = $_SESSION["username"];
 
-        $query = "UPDATE tasks SET task_name = '$newTitle', due_date = '$newDueDate', priority = '$newPriority', category = '$newCategory' WHERE task_id = '$taskId' AND user_username = '$user';";
+        $query = "UPDATE tasks SET task_name = '$newTitle', task_description = '$newDescription', due_date = '$newDueDate', priority = '$newPriority', category = '$newCategory' WHERE task_id = '$taskId' AND user_username = '$user';";
         if (!mysqli_query($conn, $query)) {
             throw new Exception("Error updating task!");
         }

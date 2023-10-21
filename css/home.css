@@ -184,6 +184,46 @@ div.logout_container {
     align-items: center;
 }
 
+ul.class_list li {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+ul.class_list li .task_name_div {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+}
+
+ul.class_list li .task_description_div, ul.class_list li .task_due_div, ul.class_list li .task_category_div {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+ul.done_tasks_list li {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+ul.done_tasks_list li .task_name_div {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+}
+
+ul.done_tasks_list li .task_description_div,
+ul.done_tasks_list li .task_due_div,
+ul.done_tasks_list li .task_category_div {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
 
 
 
